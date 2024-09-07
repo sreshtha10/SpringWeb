@@ -28,4 +28,19 @@ public class ProductService {
         products.add(product);
     }
 
+    public void updateProduct(Product product){
+        Product p = products.stream()
+                .filter(x -> x.getProdId() == product.getProdId())
+                .findFirst().get();
+
+        int index = products.indexOf(p);
+        p.setPrice(product.getPrice());
+        p.setProdName(product.getProdName());
+        products.set(index,p);
+    }
+
+    public void deleteProduct(Product product){
+        products.remove(product);
+    }
+
 }
