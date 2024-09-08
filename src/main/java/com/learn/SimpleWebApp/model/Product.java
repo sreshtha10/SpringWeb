@@ -1,9 +1,13 @@
 package com.learn.SimpleWebApp.model;
 
 
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
 import org.springframework.stereotype.Component;
 
+
 @Component
+@Entity
 public class Product {
 
     public Product(int prodId, String prodName, int price) {
@@ -39,6 +43,7 @@ public class Product {
         this.price = price;
     }
 
+    @Id
     private int prodId;
     private String prodName;
     private int price;
